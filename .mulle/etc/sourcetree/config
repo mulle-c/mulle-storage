@@ -1,0 +1,1 @@
+mulle-container;${MULLE__CONTAINER_NODETYPE:-tar};no-all-load,no-cmake-loader,no-cmake-searchpath,no-import;82BC46EE-7D6E-4270-A605-9D508C778D6E;${MULLE__CONTAINER_URL:-https://github.com/mulle-c/mulle-container/archive/${MULLE_TAG}.tar.gz};${MULLE__CONTAINER_BRANCH};${MULLE__CONTAINER_TAG:-latest};;
