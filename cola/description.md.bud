@@ -1,8 +1,6 @@
-🛅 mulle-storage manages instances of structs
+🛅 mulle-storage manages instances of a single struct
 
-Why is this better than malloc ? It can be useful as a storage for nodes
-of a tree, which grows and shrinks. It may be faster and it may produce less
-fragmentation and it may improve locality of reference.
-
-Freed nodes will be reused and all the tree nodes can be "blown" away without
-having to free each node individually.
+Why not just use malloc ? It can be for example useful as a storage for nodes
+of a tree. It may be faster and it may produce less fragmentation and it may
+improve locality of reference. Freed nodes will be reused and all the tree
+nodes can be "blown" away without having to free each node individually.

@@ -44,12 +44,13 @@ struct mulle_storage
 };
 
 
+MULLE_C_NONNULL_FIRST
 static inline void
    _mulle_storage_init( struct mulle_storage *alloc,
-                            size_t sizeof_struct,
-                            unsigned int alignof_struct,
-                            unsigned int capacity,
-                            struct mulle_allocator *allocator)
+                        size_t sizeof_struct,
+                        unsigned int alignof_struct,
+                        unsigned int capacity,
+                        struct mulle_allocator *allocator)
 {
    mulle_structqueue_init( &alloc->_structs,
                            sizeof_struct,
@@ -61,6 +62,7 @@ static inline void
 }
 
 
+MULLE_C_NONNULL_FIRST
 static inline void
    _mulle_storage_done( struct mulle_storage *alloc)
 {
@@ -72,6 +74,7 @@ static inline void
 }
 
 
+MULLE_C_NONNULL_FIRST
 static inline void  *
    _mulle_storage_malloc( struct mulle_storage *alloc)
 {
@@ -85,6 +88,7 @@ static inline void  *
 }
 
 
+MULLE_C_NONNULL_FIRST
 static inline void  *
    _mulle_storage_calloc( struct mulle_storage *alloc)
 {
@@ -96,6 +100,7 @@ static inline void  *
 }
 
 
+MULLE_C_NONNULL_FIRST
 static inline void
    _mulle_storage_free( struct mulle_storage *alloc, void *p)
 {
@@ -112,6 +117,7 @@ static inline void
 }
 
 
+MULLE_C_NONNULL_FIRST
 static inline void *
    _mulle_storage_copy( struct mulle_storage *alloc, void *q)
 {
@@ -122,6 +128,37 @@ static inline void *
    memcpy( p, q, _mulle_structqueue_get_element_size( &alloc->_structs));
    return( p);
 }
+
+
+MULLE_C_NONNULL_FIRST
+static inline struct mulle_allocator *
+   _mulle_storage_get_allocator( struct mulle_storage *alloc)
+{
+   return( _mulle_structqueue_get_allocator( &alloc->_structs));
+}
+
+
+static inline struct mulle_allocator *
+   mulle_storage_get_allocator( struct mulle_storage *alloc)
+{
+   return( alloc ? _mulle_structqueue_get_allocator( &alloc->_structs) : NULL);
+}
+
+
+MULLE_C_NONNULL_FIRST
+static inline unsigned int
+   _mulle_storage_get_count( struct mulle_storage *alloc)
+{
+   return( _mulle_structqueue_get_count( &alloc->_structs));
+}
+
+
+static inline unsigned int
+   mulle_storage_get_count( struct mulle_storage *alloc)
+{
+   return( alloc ? _mulle_structqueue_get_count( &alloc->_structs) : 0);
+}
+
 
 
 /*
