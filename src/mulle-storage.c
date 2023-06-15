@@ -3,10 +3,10 @@
 #include "mulle-storage.h"
 
 
-int   __MULLE__STRUCTALLOC_ranlib__;
+int   __MULLE__STORAGE_ranlib__;
 
 
 uint32_t   mulle_storage_get_version( void)
 {
-   return( MULLE__STRUCTALLOC_VERSION);
+   return( MULLE__STORAGE_VERSION);
 }

@@ -11,28 +11,28 @@
  *
  *  version:  major, minor, patch
  */
-#define MULLE__STRUCTALLOC_VERSION  ((0 << 20) | (7 << 8) | 56)
+#define MULLE__STORAGE_VERSION  ((0 << 20) | (0 << 8) | 1)
 
 
 static inline unsigned int   mulle_storage_get_version_major( void)
 {
-   return( MULLE__STRUCTALLOC_VERSION >> 20);
+   return( MULLE__STORAGE_VERSION >> 20);
 }
 
 
 static inline unsigned int   mulle_storage_get_version_minor( void)
 {
-   return( (MULLE__STRUCTALLOC_VERSION >> 8) & 0xFFF);
+   return( (MULLE__STORAGE_VERSION >> 8) & 0xFFF);
 }
 
 
 static inline unsigned int   mulle_storage_get_version_patch( void)
 {
-   return( MULLE__STRUCTALLOC_VERSION & 0xFF);
+   return( MULLE__STORAGE_VERSION & 0xFF);
 }
 
 
-MULLE__STRUCTALLOC_GLOBAL
+MULLE__STORAGE_GLOBAL
 uint32_t   mulle_storage_get_version( void);
 
 
@@ -78,8 +78,7 @@ MULLE_C_NONNULL_FIRST
 static inline void  *
    _mulle_storage_malloc( struct mulle_storage *alloc)
 {
-   struct mulle_allocator   *allocator;
-   void                     *p;
+   void   *p;
 
    p = mulle__pointerarray_pop( &alloc->_freed);
    if( ! p)
@@ -121,8 +120,7 @@ MULLE_C_NONNULL_FIRST
 static inline void *
    _mulle_storage_copy( struct mulle_storage *alloc, void *q)
 {
-   struct mulle_allocator   *allocator;
-   void                     *p;
+   void   *p;
 
    p = _mulle_storage_malloc( alloc);
    memcpy( p, q, _mulle_structqueue_get_element_size( &alloc->_structs));
@@ -149,17 +147,19 @@ MULLE_C_NONNULL_FIRST
 static inline unsigned int
    _mulle_storage_get_count( struct mulle_storage *alloc)
 {
-   return( _mulle_structqueue_get_count( &alloc->_structs));
+   return( _mulle_structqueue_get_count( &alloc->_structs) -
+           _mulle__pointerarray_get_count( &alloc->_freed));
 }
 
 
 static inline unsigned int
    mulle_storage_get_count( struct mulle_storage *alloc)
 {
-   return( alloc ? _mulle_structqueue_get_count( &alloc->_structs) : 0);
+   return( alloc ? _mulle_storage_get_count( alloc) : 0);
 }
 
 
+#include "mulle-indexedstorage.h"
 
 /*
  * The versioncheck header can be generated with

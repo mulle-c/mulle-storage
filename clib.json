@@ -1,0 +1,21 @@
+{
+   "name" : "mulle-storage",
+   "version" : "0.0.1",
+   "description" : "mulle-storage does something",
+   "keywords" : [],
+   "license" : "UNLICENSED",
+   "repo" : "mulle-c/mulle-storage",
+   "src" : [
+      "src/generic/include-private.h",
+      "src/generic/include.h",
+      "src/mulle-indexedstorage.h",
+      "src/mulle-storage.c",
+      "src/mulle-storage.h",
+      "src/reflect/_mulle-storage-include-private.h",
+      "src/reflect/_mulle-storage-include.h",
+      "src/reflect/_mulle-storage-provide.h"
+   ],
+   "dependencies" : {
+      "mulle-c/mulle-container": "*"
+   }
+}

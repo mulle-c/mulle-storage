@@ -4,7 +4,7 @@
 // this is a global symbol that is exposed, which can be used to detect
 // if this library is available
 
-#define HAVE_INCLUDE_MULLE__STRUCTALLOC
+#define HAVE_INCLUDE_MULLE__STORAGE
 
 /* DO:    #include this files in public headers.
 
@@ -30,14 +30,14 @@
 
 #include "_mulle-storage-include.h"
 
-#ifndef MULLE__STRUCTALLOC_GLOBAL
-# ifdef MULLE__STRUCTALLOC_BUILD
-#  define MULLE__STRUCTALLOC_GLOBAL    MULLE_C_GLOBAL
+#ifndef MULLE__STORAGE_GLOBAL
+# ifdef MULLE__STORAGE_BUILD
+#  define MULLE__STORAGE_GLOBAL    MULLE_C_GLOBAL
 # else
-#  if defined( MULLE__STRUCTALLOC_INCLUDE_DYNAMIC) || (defined( MULLE_INCLUDE_DYNAMIC) && ! defined( MULLE__STRUCTALLOC_INCLUDE_STATIC))
-#   define MULLE__STRUCTALLOC_GLOBAL   MULLE_C_GLOBAL
+#  if defined( MULLE__STORAGE_INCLUDE_DYNAMIC) || (defined( MULLE_INCLUDE_DYNAMIC) && ! defined( MULLE__STORAGE_INCLUDE_STATIC))
+#   define MULLE__STORAGE_GLOBAL   MULLE_C_GLOBAL
 #  else
-#   define MULLE__STRUCTALLOC_GLOBAL   extern
+#   define MULLE__STORAGE_GLOBAL   extern
 #  endif
 # endif
 #endif

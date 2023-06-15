@@ -9,4 +9,11 @@
  *
  *      mulle-sde environment set MULLE_MATCH_TO_C_RUN DISABLE
  */
-// no headers
+#ifndef mulle_storage_provide_h__
+#define mulle_storage_provide_h__
+
+
+#include "mulle-indexedstorage.h"
+
+
+#endif
