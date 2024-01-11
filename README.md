@@ -4,15 +4,23 @@
 
 🛅 mulle-storage manages instances of a single struct
 
-Why not just use malloc ? It can be for example useful as a storage for nodes
-of a tree. It may be faster and it may produce less fragmentation and it may
-improve locality of reference. Freed nodes will be reused and all the tree
-nodes can be "blown" away without having to free each node individually.
+Why not just use malloc ? It can be useful as a storage for nodes of a tree.
+It's likely faster and it may produce less fragmentation and it may
+improve locality of reference. Freed nodes will be reused. All the tree
+nodes can be "blown" away at once, without having to free each node
+individually.
+
+
+Why is not a mulle_structarray ? A struct array would have holes, when nodes
+are freed randomly. Also freed nodes on their own would need to be managed
+externally. mulle-storage does this, but used a struct queue instead, so it
+does not have to deal with holes.
+
 
 
 | Release Version                                       | Release Notes
 |-------------------------------------------------------|--------------
-| ![Mulle kybernetiK tag](https://img.shields.io/github/tag/mulle-c/mulle-storage.svg?branch=release) [![Build Status](https://github.com/mulle-c/mulle-storage/workflows/CI/badge.svg?branch=release)](//github.com/mulle-c/mulle-storage/actions)| [RELEASENOTES](RELEASENOTES.md) |
+| ![Mulle kybernetiK tag](https://img.shields.io/github/tag/mulle-c/mulle-storage.svg?branch=release) [![Build Status](https://github.com/mulle-c/mulle-storage/workflows/CI/badge.svg?branch=release)](//github.com/mulle-c/mulle-storage/actions) | [RELEASENOTES](RELEASENOTES.md) |
 
 
 
@@ -72,6 +80,8 @@ Install the requirements:
 |----------------------------------------------|-----------------------
 | [mulle-container](https://github.com/mulle-c/mulle-container)             | 🛄 Arrays, hashtables and a queue
 
+Download the latest [tar](https://github.com/mulle-c/mulle-storage/archive/refs/tags/latest.tar.gz) or [zip](https://github.com/mulle-c/mulle-storage/archive/refs/tags/latest.zip) archive and unpack it.
+
 Install **mulle-storage** into `/usr/local` with [cmake](https://cmake.org):
 
 ``` sh
@@ -86,7 +96,7 @@ cmake --install build --config Release
 
 ## Author
 
-[Nat!](https://mulle-kybernetik.com/weblog) for Mulle kybernetiK
+[Nat!](https://mulle-kybernetik.com/weblog) for Mulle kybernetiK  
 
 
 

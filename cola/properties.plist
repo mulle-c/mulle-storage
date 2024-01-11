@@ -7,7 +7,7 @@
       user="mulle-c";
       repo="mulle-storage";
       homepage="https://github.com/mulle-c/mulle-storage";
-      license="UNLICENSED"
+      license="BSD-3-Clause"
    };
    dependencies =
    (

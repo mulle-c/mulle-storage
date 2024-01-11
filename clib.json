@@ -1,9 +1,9 @@
 {
    "name" : "mulle-storage",
    "version" : "0.0.1",
-   "description" : "mulle-storage does something",
+   "description" : "🛅 Memory management for tree nodes",
    "keywords" : [],
-   "license" : "UNLICENSED",
+   "license" : "BSD-3-Clause",
    "repo" : "mulle-c/mulle-storage",
    "src" : [
       "src/generic/include-private.h",
