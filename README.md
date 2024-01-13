@@ -2,8 +2,6 @@
 
 #### 🛅 Memory management for tree nodes
 
-🛅 mulle-storage manages instances of a single struct
-
 Why not just use malloc ? It can be useful as a storage for nodes of a tree.
 It's likely faster and it may produce less fragmentation and it may
 improve locality of reference. Freed nodes will be reused. All the tree
