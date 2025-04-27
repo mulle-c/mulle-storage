@@ -16,9 +16,9 @@ does not have to deal with holes.
 
 
 
-| Release Version                                       | Release Notes
-|-------------------------------------------------------|--------------
-| ![Mulle kybernetiK tag](https://img.shields.io/github/tag/mulle-c/mulle-storage.svg) [![Build Status](https://github.com/mulle-c/mulle-storage/workflows/CI/badge.svg)](//github.com/mulle-c/mulle-storage/actions) | [RELEASENOTES](RELEASENOTES.md) |
+| Release Version                                       | Release Notes  | AI Documentation
+|-------------------------------------------------------|----------------|---------------
+| ![Mulle kybernetiK tag](https://img.shields.io/github/tag/mulle-c/mulle-storage.svg) [![Build Status](https://github.com/mulle-c/mulle-storage/workflows/CI/badge.svg)](//github.com/mulle-c/mulle-storage/actions) | [RELEASENOTES](RELEASENOTES.md) | [DeepWiki for mulle-storage](https://deepwiki.com/mulle-c/mulle-storage)
 
 
 

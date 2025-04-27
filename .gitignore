@@ -68,3 +68,5 @@ mulle-markdown-preview-*.html
 cola/wilted/
 cmake-build-*/
 .idea/
+.mulle/etc/make/build-dir
+vgcore.*

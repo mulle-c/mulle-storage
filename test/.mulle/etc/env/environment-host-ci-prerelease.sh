@@ -161,6 +161,24 @@ export MULLE__ATEXIT_BRANCH="prerelease"
 
 
 #
+# mulle-storage nodetype: ${MULLE__STORAGE_NODETYPE:-tar}
+#
+export MULLE__STORAGE_NODETYPE="git"
+
+
+#
+# mulle-storage url: ${MULLE__STORAGE_URL:-https://github.com/mulle-c/mulle-storage/archive/${MULLE_TAG}.tar.gz}
+#
+export MULLE__STORAGE_URL="https://github.com/mulle-c/mulle-storage.git"
+
+
+#
+# mulle-storage branch: ${MULLE__STORAGE_BRANCH}
+#
+export MULLE__STORAGE_BRANCH="prerelease"
+
+
+#
 # mulle-container nodetype: ${MULLE__CONTAINER_NODETYPE:-tar}
 #
 export MULLE__CONTAINER_NODETYPE="git"
