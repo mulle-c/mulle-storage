@@ -8,11 +8,8 @@ it may improve locality of reference. Freed nodes will be reused. All the tree
 nodes can be "blown" away at once, without having to free each node
 individually.
 
-
-Why is not a `mulle_structarray` ? A struct array would have holes, when nodes
-are freed randomly. Also freed nodes on their own would need to be managed
-externally. mulle-storage does this, but uses a struct queue instead, so it
-does not have to deal with holes.
+Why not use a `mulle_structarray` ?  A struct array can realloc and so pointers
+inside the struct array are not stable.
 
 
 
@@ -32,6 +29,18 @@ does not have to deal with holes.
 
 
 
+
+## Quickstart
+
+Install [mulle-core developer](https://github.com/MulleFoundation/foundation-developer?tab=readme-ov-file#install)
+then:
+
+
+``` sh
+mulle-sde init -d my-project -m mulle-core/c-developer executable
+cd my-project
+mulle-sde run
+```
 
 ## Add
 
