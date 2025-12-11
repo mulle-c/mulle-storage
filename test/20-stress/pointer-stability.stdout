@@ -1,0 +1,89 @@
+Pointer Stability Test: Proving pointers remain stable during growth/shrinkage
+=============================================================================
+
+Test parameters:
+  Struct size: 292 bytes
+  Max concurrent allocations: 1000
+  Total iterations: 2000
+  Initial capacity: 16 structs
+
+Starting test...
+Allocated struct 1000
+
+Verification pass 1 at iteration 0:
+  Active allocations: 1
+  Storage count: 1
+  All 1 pointers verified successfully
+Freed struct 1030
+Freed struct 1040
+
+Verification pass 2 at iteration 200:
+  Active allocations: 79
+  Storage count: 79
+  All 79 pointers verified successfully
+Allocated struct 1300
+Freed struct 1105
+
+Verification pass 3 at iteration 400:
+  Active allocations: 119
+  Storage count: 119
+  All 119 pointers verified successfully
+Freed struct 1156
+Allocated struct 1600
+
+Verification pass 4 at iteration 600:
+  Active allocations: 160
+  Storage count: 160
+  All 160 pointers verified successfully
+Freed struct 1255
+Freed struct 1306
+
+Verification pass 5 at iteration 800:
+  Active allocations: 199
+  Storage count: 199
+  All 199 pointers verified successfully
+Allocated struct 1900
+Freed struct 1405
+
+Verification pass 6 at iteration 1000:
+  Active allocations: 239
+  Storage count: 239
+  All 239 pointers verified successfully
+Freed struct 1456
+Allocated struct 2200
+
+Verification pass 7 at iteration 1200:
+  Active allocations: 280
+  Storage count: 280
+  All 280 pointers verified successfully
+Freed struct 1555
+Freed struct 1606
+
+Verification pass 8 at iteration 1400:
+  Active allocations: 319
+  Storage count: 319
+  All 319 pointers verified successfully
+Allocated struct 2500
+Freed struct 1705
+
+Verification pass 9 at iteration 1600:
+  Active allocations: 359
+  Storage count: 359
+  All 359 pointers verified successfully
+Freed struct 1756
+Allocated struct 2800
+
+Verification pass 10 at iteration 1800:
+  Active allocations: 400
+  Storage count: 400
+  All 400 pointers verified successfully
+Freed struct 1855
+
+Test completed successfully!
+Final statistics:
+  Total allocations: 700
+  Total frees: 260
+  Final active allocations: 440
+  Storage count: 440
+  Verification passes: 10
+  All pointers remained stable throughout growth and shrinkage
