@@ -3,6 +3,8 @@
    {
       description="🛅 Memory management for tree nodes";
       domain="github";
+      language="c";
+      dialect="c";
       name="mulle-storage";
       user="mulle-c";
       repo="mulle-storage";

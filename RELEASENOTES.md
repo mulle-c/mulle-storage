@@ -1,13 +1,5 @@
-### 0.0.3
-
-Various small improvements
-
-### 0.0.2
+### 0.0.4
 
 
-
-* comments by cody added
-
-### 0.0.1
-
-* Various small improvements
+* added vibecoding setup step to quickstart guide
+* clarified quickstart workflow with better section separation
