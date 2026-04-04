@@ -10,6 +10,7 @@
       repo="mulle-storage";
       homepage="https://github.com/mulle-c/mulle-storage";
       license="BSD-3-Clause";
+      version="0.0.5";
    };
    dependencies =
    (
