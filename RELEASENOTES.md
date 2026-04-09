@@ -1,5 +1,3 @@
-### 0.0.4
+### 0.0.5
 
-
-* added vibecoding setup step to quickstart guide
-* clarified quickstart workflow with better section separation
+Various small improvements
