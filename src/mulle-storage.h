@@ -193,7 +193,7 @@ static inline void
  */
 MULLE_C_NONNULL_FIRST
 static inline void *
-   _mulle_storage_copy( struct mulle_storage *alloc, void *q)
+   _mulle_storage_copy( struct mulle_storage *alloc, const void *q)
 {
    void   *p;
 
@@ -359,7 +359,7 @@ static inline void
  * @return A pointer to the newly allocated and copied element.
  */
 static inline void *
-   mulle_storage_copy( struct mulle_storage *alloc, void *q)
+   mulle_storage_copy( struct mulle_storage *alloc, const void *q)
 {
    if( ! alloc || ! q)
       return NULL;
