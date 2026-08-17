@@ -144,7 +144,7 @@ int  main( int argc, char *argv[])
          verification_passes++;
          printf( "\nVerification pass %d at iteration %u:\n", verification_passes, i);
          printf( "  Active allocations: %u\n", allocated_count);
-         printf( "  Storage count: %u\n", _mulle_storage_get_count( &store));
+         printf( "  Storage count: %zu\n", _mulle_storage_get_count( &store));
 
          for( j = 0; j < allocated_count; j++)
          {
@@ -168,7 +168,7 @@ int  main( int argc, char *argv[])
    printf( "  Total allocations: %d\n", total_allocations);
    printf( "  Total frees: %d\n", total_frees);
    printf( "  Final active allocations: %u\n", allocated_count);
-   printf( "  Storage count: %u\n", _mulle_storage_get_count( &store));
+   printf( "  Storage count: %zu\n", _mulle_storage_get_count( &store));
    printf( "  Verification passes: %d\n", verification_passes);
    printf( "  All pointers remained stable throughout growth and shrinkage\n");
 

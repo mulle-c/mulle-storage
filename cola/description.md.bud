@@ -6,3 +6,24 @@ individually.
 
 Why not use a `mulle_structarray` ?  A struct array can realloc and so pointers
 inside the struct array are not stable.
+
+
+## Benchmark
+
+`test/30-benchmark/benchmark.c` (runs with `mulle-sde test`). Release build
+(`-O2 -DNDEBUG`), 1M nodes of 32 bytes, capacity 64. Per-operation
+nanoseconds; teardown is the cost of destroying the whole pool at once.
+
+| allocator       | growth | lifo churn | random churn | teardown (1M) | system allocs |
+|-----------------|--------|------------|--------------|---------------|---------------|
+| `malloc`        | 24 ns  | 28 ns      | 13 ns        | 13.7 ms       | 1,000,000     |
+| naive free-list | 27 ns  | 11 ns      | 11 ns        | 18.0 ms       | 1,000,000     |
+| mulle-storage   | 14 ns  | 11 ns      | 12 ns        | 1.9 ms        | 15,626        |
+
+mulle-storage vs `malloc`: ~1.8x faster growth, ~2.6x faster LIFO churn,
+parity on random churn, ~7x faster bulk teardown, and **64x fewer system
+allocations**.
+
+The `capacity` argument of `_mulle_storage_init` is the bucket size: growing
+to 1M nodes needs 250,000 / 15,626 / 978 system allocations for capacity
+4 / 64 / 1024.

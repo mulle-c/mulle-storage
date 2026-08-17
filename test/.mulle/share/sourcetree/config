@@ -1,1 +1,1 @@
-mulle-storage;${MULLE__STORAGE_NODETYPE:-tar};;B57693CA-2FF9-4519-915B-90B848DF5372;${MULLE__STORAGE_URL:-https://github.com/mulle-kybernetik-tv/mulle-storage/archive/${MULLE_TAG}.tar.gz};${MULLE__STORAGE_BRANCH};${MULLE__STORAGE_TAG:-latest};;
+mulle-storage;${MULLE__STORAGE_NODETYPE:-tar};;6E7BD466-EF55-444C-920B-9E55798BDECA;${MULLE__STORAGE_URL:-https://github.com/mulle-c/mulle-storage/archive/${MULLE_TAG}.tar.gz};${MULLE__STORAGE_BRANCH};${MULLE__STORAGE_TAG:-latest};;
