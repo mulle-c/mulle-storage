@@ -45,7 +45,7 @@
  *
  *  version:  major, minor, patch
  */
-#define MULLE__STORAGE_VERSION  ((0UL << 20) | (0 << 8) | 6)
+#define MULLE__STORAGE_VERSION  ((0UL << 20) | (1 << 8) | 0)
 
 
 static inline unsigned int   mulle_storage_get_version_major( void)
@@ -370,6 +370,7 @@ static inline void *
 
 
 #include "mulle-indexedstorage.h"
+#include "mulle-arena.h"
 
 /*
  * The versioncheck header can be generated with

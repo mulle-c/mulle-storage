@@ -1,1 +1,1 @@
-mulle-storage;${MULLE__STORAGE_NODETYPE:-tar};;6E7BD466-EF55-444C-920B-9E55798BDECA;${MULLE__STORAGE_URL:-https://github.com/mulle-c/mulle-storage/archive/${MULLE_TAG}.tar.gz};${MULLE__STORAGE_BRANCH};${MULLE__STORAGE_TAG:-latest};;
+mulle-storage;${MULLE__STORAGE_NODETYPE:-tar};;457AE2A0-8929-4667-890C-29B319DE9433;${MULLE__STORAGE_URL:-https://github.com/nat/mulle-storage/archive/${MULLE_TAG}.tar.gz};${MULLE__STORAGE_BRANCH};${MULLE__STORAGE_TAG:-latest};;

@@ -36,6 +36,7 @@ src/generic/include-private.h
 set( PUBLIC_GENERATED_HEADERS
 src/reflect/_mulle-storage-include.h
 src/reflect/_mulle-storage-provide.h
+src/reflect/_mulle-storage-versioncheck.h
 )
 
 #
@@ -49,6 +50,7 @@ src/generic/include.h
 # contents selected with patternfile ??-header--public-headers
 #
 set( PUBLIC_HEADERS
+src/mulle-arena.h
 src/mulle-indexedstorage.h
 src/mulle-storage.h
 )

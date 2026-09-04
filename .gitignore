@@ -80,3 +80,6 @@ build-*/
 *.tmp.*
 *.test.*
 .idea
+stdin.o
+.kiro/
+REVIEW.md
