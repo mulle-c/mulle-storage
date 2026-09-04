@@ -12,6 +12,40 @@ Why not use a `mulle_structarray` ?  A struct array can realloc and so pointers
 inside the struct array are not stable.
 
 
+## Components
+
+| Component | Description |
+|-----------|-------------|
+| `mulle_storage` | Fixed-size node pool with pointer-based access. Freed nodes are recycled via an internal free-list. |
+| `mulle_indexedstorage` | Fixed-size node pool with integer index-based access. |
+| `mulle_arena` | Variable-size bump allocator. No individual free—everything is released at once on `done` or `reset`. Subclasses `mulle_allocator` so it can be passed to any code expecting one. |
+
+
+## mulle_arena
+
+`mulle_arena` is a bump/arena allocator for variable-sized allocations with
+scoped lifetime. Use it when all allocations die at the same time (per-request,
+per-frame, parser scratch, builder patterns).
+
+It implements `MULLE_ALLOCATOR_BASE`, so you can use it as a drop-in
+`mulle_allocator *`:
+
+``` c
+struct mulle_arena   arena;
+
+_mulle_arena_init( &arena, 4096, NULL);
+
+struct mulle_allocator  *allocator = _mulle_arena_get_allocator( &arena);
+// use allocator with any mulle container...
+
+_mulle_arena_done( &arena);  // frees everything at once
+```
+
+Allocator protocol semantics: `calloc` bumps + zeroes, `realloc` extends the
+last allocation in place when possible (otherwise alloc + copy), `free` is a
+no-op.
+
+
 ## Memory Model
 
 Freed nodes are never returned to the system allocator. They are kept in an
@@ -21,6 +55,27 @@ This means the high-water mark is permanent for the lifetime of the storage.
 
 mulle-storage is **not thread-safe**. If you need to access a storage from
 multiple threads, you must provide external synchronization.
+
+
+## Benchmark
+
+`test/30-benchmark/benchmark.c` (runs with `mulle-sde test`). Release build
+(`-O2 -DNDEBUG`), 1M nodes of 32 bytes, capacity 64. Per-operation
+nanoseconds; teardown is the cost of destroying the whole pool at once.
+
+| allocator       | growth | lifo churn | random churn | teardown (1M) | system allocs |
+|-----------------|--------|------------|--------------|---------------|---------------|
+| `malloc`        | 24 ns  | 28 ns      | 13 ns        | 13.7 ms       | 1,000,000     |
+| naive free-list | 27 ns  | 11 ns      | 11 ns        | 18.0 ms       | 1,000,000     |
+| mulle-storage   | 14 ns  | 11 ns      | 12 ns        | 1.9 ms        | 15,626        |
+
+mulle-storage vs `malloc`: ~1.8x faster growth, ~2.6x faster LIFO churn,
+parity on random churn, ~7x faster bulk teardown, and **64x fewer system
+allocations**.
+
+The `capacity` argument of `_mulle_storage_init` is the bucket size: growing
+to 1M nodes needs 250,000 / 15,626 / 978 system allocations for capacity
+4 / 64 / 1024.
 
 
 
