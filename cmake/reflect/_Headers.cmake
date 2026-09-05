@@ -36,7 +36,6 @@ src/generic/include-private.h
 set( PUBLIC_GENERATED_HEADERS
 src/reflect/_mulle-storage-include.h
 src/reflect/_mulle-storage-provide.h
-src/reflect/_mulle-storage-versioncheck.h
 )
 
 #
