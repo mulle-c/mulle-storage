@@ -391,12 +391,12 @@ static void   *counting_calloc( size_t n, size_t size, struct mulle_allocator *a
 }
 
 
-static void   *counting_realloc( void *block, size_t size, struct mulle_allocator *a)
+static void   *counting_reallocarray( void *block, size_t n, size_t size, struct mulle_allocator *a)
 {
    struct counting_allocator  *ca = (struct counting_allocator *) a;
 
    ca->realloc_calls++;
-   return( realloc( block, size));
+   return( realloc( block, n * size));
 }
 
 
@@ -423,9 +423,9 @@ static void   counting_fail( struct mulle_allocator *a, void *block, size_t size
 static void   counting_allocator_init( struct counting_allocator *ca)
 {
    memset( ca, 0, sizeof( *ca));
-   ca->allocator.calloc  = counting_calloc;
-   ca->allocator.realloc = counting_realloc;
-   ca->allocator.free    = counting_free;
+   ca->allocator.calloc       = counting_calloc;
+   ca->allocator.reallocarray = counting_reallocarray;
+   ca->allocator.free         = counting_free;
    ca->allocator.fail    = counting_fail;
    // abafree and aba stay NULL
 }
