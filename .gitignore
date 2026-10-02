@@ -83,3 +83,6 @@ build-*/
 stdin.o
 .kiro/
 REVIEW.md
+.touch
+*.orig
+*.workspace

@@ -15,7 +15,6 @@ int  main( int argc, char *argv[])
 {
    struct mulle_indexedstorage   store;
    struct mulle_pointerarray     check;
-   struct x                      value;
    struct x                      *saved;
    unsigned int                  i;
    unsigned int                  j;

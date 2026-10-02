@@ -15,7 +15,6 @@ int  main( int argc, char *argv[])
    struct x                      *p;
    unsigned int                  i;
    unsigned int                  index;
-   unsigned int                  freed_indices[5];
 
    _mulle_indexedstorage_init( &store,
                                sizeof( struct x),
@@ -37,10 +36,7 @@ int  main( int argc, char *argv[])
 
    // free every second one (indices 0, 2, 4, 6, 8)
    for( i = 0; i < 5; i++)
-   {
-      freed_indices[ i] = i * 2;
       _mulle_indexedstorage_free( &store, i * 2);
-   }
 
    if( _mulle_indexedstorage_get_count( &store) != 5)
       abort();

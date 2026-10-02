@@ -1,6 +1,6 @@
 {
    "name" : "mulle-storage",
-   "version" : "0.1.0",
+   "version" : "0.1.1",
    "description" : "🛅 Memory management for tree nodes",
    "keywords" : [],
    "license" : "BSD-3-Clause",

@@ -13,7 +13,6 @@ int  main( int argc, char *argv[])
 {
    struct mulle_storage   store;
    struct mulle_pointerarray  check;
-   struct mulle_pointerarray  reusecheck;
    struct x                   value;
    struct x                   *saved;
    unsigned int               i;
