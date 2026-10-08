@@ -1,6 +1,7 @@
 ### 0.1.1
 
 
+
 * Correct the arena vtable field from `realloc` to `reallocarray` and describe its overflow/zero-size error handling.
 * Update alignment documentation to reference ``MULLE_ARENA_DEFAULT_ALIGNMENT`` as `alignof( union `mulle_arena_max_align)`` instead of ``max_align_t`.`
 * Add a section for the `union `mulle_arena_max_align`` alignment helper type and its fields.
